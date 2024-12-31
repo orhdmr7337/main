@@ -37,7 +37,7 @@ const Navbar = () => {
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
           </p>
         </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-10"  style={{ color: '#b3286c' }}>
+        <ul className="list-none hidden sm:flex flex-row gap-10 items-center"  style={{ color: '#b3286c' }}>
           {navLinks.map((link) => {
             return (
               <li
@@ -51,6 +51,28 @@ const Navbar = () => {
               </li>
             );
           })}
+          <li>
+            <Link
+              to="/admin/login"
+              className="nav-link px-4 py-2 rounded-md text-[20px] font-bold"
+              style={{
+                border: '1px solid #b3286c',
+                color: '#b3286c',
+                transition: 'all 0.3s ease-in-out'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#b3286c';
+                e.target.style.color = '#1d1d1d';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'transparent';
+                e.target.style.color = '#b3286c';
+              }}
+            >
+              <i className="fas fa-user me-2"></i>
+              Giriş
+            </Link>
+          </li>
         </ul>
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
@@ -81,6 +103,15 @@ const Navbar = () => {
                   </li>
                 );
               })}
+              <li>
+                <Link
+                  to="/admin/login"
+                  className="text-[#08fdd8] font-poppins font-medium text-[16px]"
+                >
+                  <i className="fas fa-user me-2"></i>
+                  Giriş
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

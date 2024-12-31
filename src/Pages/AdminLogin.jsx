@@ -1,23 +1,6 @@
-/*
-   Copyright (C), 2023-2024, Sara Echeverria (bl33h)
-   Author: Sara Echeverria
-   FileName: App.jsx
-   Version: I
-   Creation: 02/06/2023
-   Last modification: 02/06/2023
-*/
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import NavBar from "../Components/nav/NavBar";
-import Hero from "../Pages/Hero";
-import Projects from "../Pages/Projects";
-import About from "../Pages/About";
-import Skills from "../Pages/Skills";
-import Contact from "../Pages/Contact";
-import AdminDashboard from '../pages/AdminDashboard';
-
-// Admin sayfası için yeni bileşen
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
@@ -42,7 +25,6 @@ const AdminLogin = () => {
       }
     } catch (err) {
       setError('Bağlantı hatası oluştu');
-      console.error('Login error:', err);
     }
   };
 
@@ -86,25 +68,4 @@ const AdminLogin = () => {
   );
 };
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <>
-            <NavBar />
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Contact />
-          </>
-        } />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
+export default AdminLogin; 
